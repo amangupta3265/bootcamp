@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bootcamp-playground.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bootcamp-playground.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.group6.bootcamp-playground.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.group6.bootcamp-playground.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tekion-bootcamp-playground-f47b2fbaf6cb.bootcamp-playground.main.iml" filepath="$PROJECT_DIR$/.idea/modules/tekion-bootcamp-playground-f47b2fbaf6cb.bootcamp-playground.main.iml" />
+    </modules>
+  </component>
+</project>
