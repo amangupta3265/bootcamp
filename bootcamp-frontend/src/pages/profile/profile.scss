@@ -1,0 +1,57 @@
+.profile {
+    .wrapper {
+      position: relative;
+      display: flex;
+      margin: auto;
+      top: 150px;
+      color: white;
+      width: auto;
+      height: auto;
+      .content {
+        background-color: #202020;
+        margin-left: 100px;
+        margin-right: 100px;
+        width: 100%;
+        form {
+          h2 {
+            color: white;
+            margin-bottom: 30px;
+          }
+          background-color: #202020;
+          padding: 60px 80px;
+          label {
+            color: white;
+          }
+          .field {
+            margin-bottom: 20px;
+            input {
+              background-color: rgb(86, 86, 86);
+              color: white;
+            }
+            label {
+              color: whitesmoke;
+              font-size: 14px;
+            }
+          }
+          .forgot-password {
+            position: relative;
+            left: 0px;
+            margin-bottom: 10px;
+          }
+          button {
+            margin-top: 20px;
+            margin-right: 10px;
+          }
+          img {
+            margin-top: 30px;
+            width: 130px;
+            height: 130px;
+            border-radius:100%;
+            object-fit: cover;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  

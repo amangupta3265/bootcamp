@@ -1,0 +1,40 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.editor-box{
+    width:50%;
+}
+
+.notesContainer{
+    display: flex;
+}
+
+.noteList{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.note{
+    margin: 20px;
+    padding: 0px;
+    width: 200px;
+    height: 250px;
+    background-color: antiquewhite;
+    overflow: scroll;
+    border-radius: 5px;
+}
+
+.content-div{
+    width: 400px;
+}
+
+.noteInput{
+    width: 200px;
+    height: 180px;
+    background-color: antiquewhite;
+    border: transparent;
+   
+}
