@@ -11,6 +11,11 @@ const OtpEmail = () => {
         console.log(email)
         axios.post('http://localhost:8080/sendMail', {
             "email": email,
+        },{
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:8080'
+              }
         }).then((res) => {
                 navigate('/otp')
         }).catch(() => {

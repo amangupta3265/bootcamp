@@ -12,13 +12,13 @@ const Login = () => {
 
         console.log(username, password)
 
-        axios.post('http://localhost:3000/auth/login', {
+        axios.post('http://localhost:8080/auth/login', {
             "email": username,
             "password": password
         },{
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:3000'
+                'Access-Control-Allow-Origin': 'http://localhost:8080'
               }
         }).then((res) => {
                 //setting csrf login

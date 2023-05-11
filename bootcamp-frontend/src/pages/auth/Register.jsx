@@ -14,14 +14,14 @@ const Register = () => {
         const name = e.target[1].value;
         const password = e.target[2].value;
 
-        axios.post('http://localhost:3000/signup', {
+        axios.post('http://localhost:8080/auth/signup', {
             "email": username,
             "name" : name,
             "password" :password
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:3000'
+                'Access-Control-Allow-Origin': '*'
               }
         }).then((res) => {
             localStorage.setItem('token', res.data.token)

@@ -16,14 +16,15 @@ function SingleNote({ note, id }) {
     setUserInput(inputRef.current.value);
   };
 
-  const saveNote = () => {
+  const saveNote = (event) => {
+    event.preventDefault();
     const token = localStorage.getItem('token');
     axios.post(
-      `http://localhost:3000/notes/add/`,
+      `http://localhost:8080/notes/add/`,
       {
         noteContent: userInput
       },
-      { headers: { Authorization: `Basic ${token}` }, 'Access-Control-Allow-Origin': 'http://localhost:3000' }
+      { headers: { Authorization: `Bearer ${token}` }, 'Access-Control-Allow-Origin': '*' }
     )
       .then(response => {
         console.log(response.data);
@@ -36,8 +37,8 @@ function SingleNote({ note, id }) {
   const deleteNote = (id) => {
     const token = localStorage.getItem('token');
     axios
-      .delete(`http://localhost:3000/notes/delete/${id}`, {
-        headers: { Authorization: `Basic ${token}`,'Access-Control-Allow-Origin': 'http://localhost:3000' }
+      .delete(`http://localhost:8080/notes/delete/${id}`, {
+        headers: { Authorization: `Bearer ${token}`,'Access-Control-Allow-Origin': 'http://localhost:8080' }
       })
       .then(response => {
         console.log(response.data);
@@ -52,12 +53,12 @@ function SingleNote({ note, id }) {
     const token = localStorage.getItem('token');
     axios
       .post(
-        `http://localhost:3000/notes/sendnoteonemail/${id}`,
+        `http://localhost:8080/notes/sendnoteonemail/${id}`,
         {
           email: emailInput,
           id:id
         },
-        { headers: { Authorization: `Basic ${token}`,'Access-Control-Allow-Origin': 'http://localhost:3000' } }
+        { headers: { Authorization: `Bearer ${token}`,'Access-Control-Allow-Origin': 'http://localhost:8080' } }
       )
       .then(response => {
         console.log(response.data);
@@ -71,11 +72,11 @@ function SingleNote({ note, id }) {
     const token = localStorage.getItem('token');
     axios
       .post(
-        `http://localhost:3000/notes/giveaccess/`,
+        `http://localhost:8080/notes/giveaccess/`,
         {
           noteAccess: emailInput
         },
-        { headers: { Authorization: `Basic ${token}`,'Access-Control-Allow-Origin': 'http://localhost:3000' } }
+        { headers: { Authorization: `Bearer ${token}`,'Access-Control-Allow-Origin': 'http://localhost:8080' } }
       )
       .then(response => {
         console.log(response.data);
@@ -94,7 +95,7 @@ function SingleNote({ note, id }) {
         <i className="fa-solid fa-trash"></i>
       </button>
       <textarea className="noteInput" value={userInput} onChange={editNote} />
-      <button onClick={saveNote}>save</button>
+      <button onClick={(event)=>saveNote(event)}>save</button>
       <input
         type="email"
         value={emailInput}

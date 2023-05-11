@@ -26,6 +26,9 @@ const Editor = ({ saveNote }) => {
     }
   };
 
+  if (text) {
+    document.getElementById("notePreview").innerHTML = text;
+  }
   return (
     <div className="editor-box">
       {" "}
@@ -36,13 +39,14 @@ const Editor = ({ saveNote }) => {
           data={text}
           onChange={(event, editor) => {
             const data = editor.getData();
+
             setText(data);
-            document.getElementById("notePreview").innerHTML = text;
+
             //console.log(document.getElementById("notePreview"), "hello");
           }}
           ref={editorRef}
         />{" "}
-        <button onClick={() => saveNote(text)}>submit</button>
+        <button onClick={(event) => saveNote(event, text)}>submit</button>
         <button onClick={exportToFile}>Export</button>{" "}
         <input type="file" accept=".txt" onChange={handleFileChange} />{" "}
         <div>

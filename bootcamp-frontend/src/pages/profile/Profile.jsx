@@ -16,7 +16,12 @@ const Profile = () => {
         method: "get",
         url: "localhost:8080/user",
         withCredentials: true
-      })
+      },{
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8080'
+          }
+    })
       console.log(res)
       setUser(res.user)
     }
@@ -32,13 +37,18 @@ const Profile = () => {
       e.preventDefault();
       const res = await axios({
         method: "post",
-        url: "localhost:3000/user",
+        url: "localhost:8080/user",
         data: {
           name: nameRef.current.value,
           email: emailRef.current.value,
         },
         withCredentials: true,
-      });
+      },{
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8080'
+          }
+    });
 
       if (res.status === "success") {
         alert("Saved details successfully");

@@ -10,10 +10,11 @@ function MyNotes() {
 
   useEffect(()=>{
     const token = localStorage.getItem('token');
-    axios.get('http://localhost:3000/notes/getmynotes', {
+    console.log(token)
+    axios.get('http://localhost:8080/notes/getmynotes', {
       headers: {
-        Authorization: `Basic ${token}`,
-        'Access-Control-Allow-Origin': 'http://localhost:3000'
+        Authorization: `Bearer ${token}`,
+        'Access-Control-Allow-Origin': '*'
       }
     })
     .then(res => {
@@ -24,14 +25,20 @@ function MyNotes() {
     })
   },[])
 
-  const saveNote = (text) => {
+  const saveNote = (event,text) => {
+    event.preventDefault();
     const token= localStorage.getItem('token')
-    axios.post(`http://localhost:3000/notes/add`, {
-      noteContent:text
+    console.log(token)
+    axios.post(`http://localhost:8080/notes/add`, {
+      noteId:notes.length,
+      noteTitle:text.substr(0,5),
+      noteContent:text,
+      withCredentials: true
     }, {
         headers: {
-          Authorization: `Basic ${token}`,
-          'Access-Control-Allow-Origin': 'http://localhost:3000'
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Access-Control-Allow-Origin': '*'
         }
       })
       .then(response => {
@@ -42,7 +49,7 @@ function MyNotes() {
       });
   }
 
-  let noteList = notes.map(note => <SingleNote key={note.id} id={note.noteId} note={note}/>);
+  let noteList = notes.map(note => <SingleNote key={note.noteId} id={note.noteId} note={note}/>);
 
   return (
     <>
